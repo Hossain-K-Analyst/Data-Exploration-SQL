@@ -1,21 +1,5 @@
 
 
-
-select order_date
-from orders
---What was the city with the most profit for the company in 2015?
-SELECT 
-    YEAR(CONVERT(datetime, order_date, 120)) AS order_year,
- shipping_city
-from [sales_table]
-
-
-
-
-drop view sales_table
-
-
-
 -- How many customers do we have in the data
 
 SELECT COUNT(distinct(customer_id))as total_customer
@@ -36,7 +20,7 @@ GROUP BY customer_id, customer_name
 ORDER BY 1 ASC;
 
 --What is the most profitable city in the State of Tennessee?
---What’s the average annual profit for that city across all years?
+--Whatâ€™s the average annual profit for that city across all years?
 
 SELECT top 10
 shipping_city,shipping_state,  sum(order_profits) as most_profitable,avg(order_profits) as avg_profit
@@ -51,7 +35,7 @@ select count(distinct(customer_id)),customer_segment
 from sales_table
 group by customer_segment
 
---What’s the most profitable product category on average in Iowa across all years?
+--Whatâ€™s the most profitable product category on average in Iowa across all years?
 
 select shipping_state, avg(order_profits)as avg_profit ,product_category
 from sales_table
@@ -120,7 +104,7 @@ where date_year=2015
 order by 4 asc
 
 --Display customer names for customers who are in the
---segment ‘Consumer’ or ‘Corporate.’ How many customers are there in total
+--segment â€˜Consumerâ€™ or â€˜Corporate.â€™ How many customers are there in total
 
 with total_c_c as
 (select distinct(customer_id), customer_segment  
@@ -131,14 +115,14 @@ from total_c_c
 
 
 --Calculate the difference between the largest and smallest order 
---quantities for product id ‘100.’
+--quantities for product id â€˜100.â€™
 
 SELECT product_id ,min(quantity)as min_q, MAX(quantity)as max_q,(min(quantity)- MAX(quantity)) as q_dif
 FROM sales_table
 WHERE product_id = 100
 group by product_id
 
---Calculate the percent of products that are within the category ‘Furniture.’ 
+--Calculate the percent of products that are within the category â€˜Furniture.â€™ 
 
 SELECT 
   (SUM(quantity) * 100 / (SELECT SUM(quantity) FROM sales_table)) AS percentage

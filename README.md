@@ -1,3 +1,7 @@
+# Tableau Visualization
+
+This repository contains a Tableau visualization on [Tableau Public](https://public.tableau.com/views/GlobalSuicideViz/Dashboard1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link).
+
 Suicide Rates Analysis
 This repository contains an analysis of suicide rates data from 1985 to 2016 across different countries and age groups. The dataset used for this analysis is collected from Kaggle.
 
